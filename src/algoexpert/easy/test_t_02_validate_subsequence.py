@@ -1,5 +1,6 @@
 import pytest
-from src.algoexpert.easy.t_02_validate_subsequence import isValidSubsequence_sol_1, isValidSubsequence_sol_2
+from src.algoexpert.easy.t_02_validate_subsequence import isValidSubsequence_sol_1, isValidSubsequence_sol_2, \
+    isValidSubsequence_sol_3
 
 test_cases = [
     ([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, 10], True),
@@ -41,3 +42,7 @@ def test_isValidSubsequence_sol_1(input_array, input_sequence, result):
 @pytest.mark.parametrize("input_array, input_sequence, result", test_cases)
 def test_isValidSubsequence_sol_2(input_array, input_sequence, result):
     assert isValidSubsequence_sol_2(input_array, input_sequence) == result
+
+@pytest.mark.parametrize("input_array, input_sequence, result", test_cases)
+def test_isValidSubsequence_sol_3(input_array, input_sequence, result):
+    assert isValidSubsequence_sol_3(input_array, input_sequence) == result

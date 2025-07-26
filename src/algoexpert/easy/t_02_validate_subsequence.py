@@ -75,3 +75,17 @@ def isValidSubsequence_sol_2(array, sequence):
             return True
 
     return False
+
+def isValidSubsequence_sol_3(array, sequence):
+    """
+    Single iteration
+    """
+    s_index = 0
+    for a_value in array:
+        s_value = sequence[s_index]
+        if a_value == s_value:
+            s_index +=1
+        if s_index == len(sequence):
+            return True
+
+    return False
