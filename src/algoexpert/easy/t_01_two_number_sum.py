@@ -27,55 +27,48 @@ def twoNumberSum_sol_1(array, targetSum) -> list[str]:
     """
     Brute force solution.
     """
-    arr_len = len(array)
-    out = []
-    for l_index in range(arr_len - 1):
-        for r_index in range(l_index + 1, arr_len):
+    for l_index in range(len(array) - 1):
+        for r_index in range(l_index + 1, len(array)):
             l_value = array[l_index]
             r_value = array[r_index]
             if l_value + r_value == targetSum:
-                out.append(l_value)
-                out.append(r_value)
+                return [l_value, r_value]
+    return []
 
-    return out
 
 def twoNumberSum_sol_2(array, targetSum) -> list[str]:
     """
     Using hash table for diff lookup
     """
-    hash_table=set()
-    out = []
+    collector = set()
+
     for el in array:
         diff = targetSum - el
-        if diff in hash_table:
-            out.append(el)
-            out.append(diff)
-        hash_table.add(el)
+        if diff in collector:
+            return [el, diff]
+        collector.add(el)
+    return []
 
-    return out
+
 def twoNumberSum_sol_3(array, targetSum) -> list[str]:
     """
     Sorting array and use two pointers
     """
 
-    out = []
     array.sort()
-    print(array)
-    array_len = len(array)
+
     l_index = 0
-    r_index = array_len - 1
-    while l_index < r_index < array_len:
+    r_index = len(array) - 1
+
+    while l_index < r_index:
         l_value = array[l_index]
         r_value = array[r_index]
         sum = l_value + r_value
-        print(l_index, l_value, r_index, r_value, sum)
         if sum == targetSum:
-            out.append(l_value)
-            out.append(r_value)
-            break
+            return [l_value, r_value]
         elif sum < targetSum:
-            l_index+=1
+            l_index += 1
         elif sum > targetSum:
-            r_index-=1
+            r_index -= 1
 
-    return out
+    return []
