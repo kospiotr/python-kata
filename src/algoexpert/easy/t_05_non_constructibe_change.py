@@ -81,19 +81,37 @@ Optimal Space & Time ComplexityO(nlogn) time | O(1) space - where n is the numbe
 
 def nonConstructibleChange_sol_1(coins):
     coins.sort()
+    print(coins)
 
-    def change_for(target_value):
-        max_sum = 0
+    def has_change_for(target):
+        current_sum = 0
+
         for current_coin_value in reversed(coins):
-            if current_coin_value + max_sum <= target_value:
-                max_sum+=current_coin_value
-            # print(target_value, current_coin_value, max_sum)
-            if max_sum == target_value:
+            if current_sum + current_coin_value <= target:
+                current_sum += current_coin_value
+
+            print(target, current_coin_value, current_sum)
+            if current_sum == target:
                 return True
+
         return False
 
     current = 1
-    while change_for(current):
-        current+=1
+    while has_change_for(current):
+        current += 1
 
     return current
+
+
+def nonConstructibleChange_sol_2(coins):
+    coins.sort()
+
+    current_created = 0
+    for current_coin_value in coins:
+        print(current_created, current_coin_value)
+        if current_coin_value <= current_created + 1:
+            current_created += current_coin_value
+        else:
+            break
+
+    return current_created + 1
