@@ -47,22 +47,16 @@ def threeNumberSum_sol_1(array, targetSum):
         return out
 
     array.sort()
-    for l_pointer in range(len(array)-2):
-        l_value = array[l_pointer]
-
-        for m_pointer in range(l_pointer + 1, len(array)-1):
-            m_value = array[m_pointer]
-
-            for r_pointer in range(m_pointer + 1, len(array)):
+    for l_pointer in range(0, len(array)-2):
+        for m_pointer in range(l_pointer+1, len(array)-1):
+            for r_pointer in range(m_pointer+1, len(array)):
+                l_value = array[l_pointer]
+                m_value = array[m_pointer]
                 r_value = array[r_pointer]
-
                 sum = l_value + m_value + r_value
-                print((l_pointer, l_value),(m_pointer, m_value),(r_pointer, r_value),sum)
+
                 if sum == targetSum:
                     out.append([l_value, m_value, r_value])
-
-                if sum > targetSum:
-                    break
 
     return out
 
@@ -70,19 +64,21 @@ def threeNumberSum_sol_2(array, targetSum):
 
     # sliding pointers, assuming there are no duplicates
     # when there are duplicates only brute force method works correctly
-    print()
+    print(targetSum)
     out = []
 
     array.sort()
+
     l_pointer = 0
-    while l_pointer < len(array) - 1:
-        l_value = array[l_pointer]
+    while l_pointer < len(array) - 2:
         m_pointer = l_pointer + 1
         r_pointer = len(array) - 1
 
         while m_pointer < r_pointer:
+            l_value = array[l_pointer]
             m_value = array[m_pointer]
             r_value = array[r_pointer]
+
             sum = l_value + m_value + r_value
             print((l_pointer, l_value),(m_pointer, m_value), (r_pointer, r_value), sum)
 
@@ -91,12 +87,11 @@ def threeNumberSum_sol_2(array, targetSum):
                 m_pointer+=1
                 r_pointer-=1
 
-            if sum > targetSum:
-                r_pointer-=1
-
             if sum < targetSum:
                 m_pointer+=1
 
+            if sum > targetSum:
+                r_pointer-=1
 
         l_pointer+=1
 
