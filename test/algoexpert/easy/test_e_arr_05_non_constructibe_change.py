@@ -1,6 +1,8 @@
+import copy
+
 import pytest
 
-from src.algoexpert.easy.t_05_non_constructibe_change import nonConstructibleChange_sol_1, nonConstructibleChange_sol_2
+from src.algoexpert.easy.e_arr_05_non_constructibe_change import nonConstructibleChange_sol_1, nonConstructibleChange_sol_2
 
 test_cases = [
     ([5, 7, 1, 1, 2, 3, 22], 20),
@@ -26,13 +28,13 @@ test_cases = [
     ([1], 2),
     ([109, 2000, 8765, 19, 18, 17, 16, 8, 1, 1, 2, 4], 87),
     ([1, 2, 3, 4, 5, 6, 7], 29)
-
 ]
 
-@pytest.mark.parametrize("coins, result_expected", test_cases)
+@pytest.mark.parametrize("coins, result_expected", copy.deepcopy(test_cases))
 def test_nonConstructibleChange_sol_1(coins, result_expected):
     assert nonConstructibleChange_sol_1(coins) == result_expected
 
-@pytest.mark.parametrize("coins, result_expected", test_cases)
+@pytest.mark.parametrize("coins, result_expected", copy.deepcopy(test_cases))
 def test_nonConstructibleChange_sol_2(coins, result_expected):
+    print("DEBUG",nonConstructibleChange_sol_2(coins), result_expected)
     assert nonConstructibleChange_sol_2(coins) == result_expected

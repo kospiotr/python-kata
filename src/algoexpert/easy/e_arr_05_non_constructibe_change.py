@@ -102,9 +102,11 @@ def nonConstructibleChange_sol_1(coins):
 
 
 def nonConstructibleChange_sol_2(coins):
+    coins.sort()
     last_created = 0
 
     for current_coin_value in coins:
+        print(current_coin_value, last_created + 1)
         if current_coin_value <= last_created + 1:
             last_created+=current_coin_value
         else:

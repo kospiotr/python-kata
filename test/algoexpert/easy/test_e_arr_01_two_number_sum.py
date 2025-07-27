@@ -1,6 +1,7 @@
 import pytest
 
-from src.algoexpert.easy.t_01_two_number_sum import twoNumberSum_sol_1, twoNumberSum_sol_2, twoNumberSum_sol_3
+from algoexpert.assertions import assert_arrays
+from src.algoexpert.easy.e_arr_01_two_number_sum import twoNumberSum_sol_1, twoNumberSum_sol_2, twoNumberSum_sol_3
 
 test_cases = [
     ([3, 5, -4, 8, 11, 1, -1, 6], 10, [-1, 11]),
@@ -33,10 +34,3 @@ def test_twoNumberSum_sol2(array, targetSum, result):
 def test_twoNumberSum_sol3(array, targetSum, result):
     assert_arrays(twoNumberSum_sol_3(array, targetSum), result)
 
-def assert_arrays(left, right):
-    print(left, '==', right)
-    left.sort()
-    right.sort()
-    assert len(left) == len(right)
-    for index in range(len(right)):
-        assert left[index] == right[index]

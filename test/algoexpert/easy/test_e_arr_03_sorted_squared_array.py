@@ -1,5 +1,5 @@
 import pytest
-from src.algoexpert.easy.t_03_sorted_squared_array import sortedSquaredArray_sol_1, sortedSquaredArray_sol_2
+from src.algoexpert.easy.e_arr_03_sorted_squared_array import sortedSquaredArray_sol_1, sortedSquaredArray_sol_2
 
 test_cases = [
     ([1, 2, 3, 5, 6, 8, 9], [1, 4, 9, 25, 36, 64, 81]),

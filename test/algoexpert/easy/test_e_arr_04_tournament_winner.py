@@ -1,6 +1,6 @@
 import pytest
 
-from src.algoexpert.easy.t_04_tournament_winner import tournamentWinner_sol_1
+from src.algoexpert.easy.e_arr_04_tournament_winner import tournamentWinner_sol_1
 
 test_cases = [
     ([["HTML", "C#"], ["C#", "Python"], ["Python", "HTML"]], [0, 0, 1], "Python"),

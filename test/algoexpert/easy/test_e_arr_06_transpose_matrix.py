@@ -1,6 +1,6 @@
 import pytest
 
-from src.algoexpert.easy.t_06_transpose_matrix import transposeMatrix_sol_1, transposeMatrix_sol_2
+from src.algoexpert.easy.e_arr_06_transpose_matrix import transposeMatrix_sol_1, transposeMatrix_sol_2
 
 test_cases = [
     ([
