@@ -95,7 +95,7 @@ def smallestDifference_sol_2(arrayOne, arrayTwo):
 
     one_pointer = 0
     two_pointer = 0
-    min_pair = []
+    out = []
     min_abs = None
 
     while one_pointer < len(arrayOne) and two_pointer < len(arrayTwo):
@@ -105,14 +105,14 @@ def smallestDifference_sol_2(arrayOne, arrayTwo):
 
         if min_abs is None or current_abs < min_abs:
             min_abs = current_abs
-            min_pair = [one_value, two_value]
+            out = [one_value, two_value]
 
         if min_abs == 0:
-            return min_pair
+            return out
 
         if one_value < two_value:
             one_pointer+=1
         else:
             two_pointer+=1
 
-    return min_pair
+    return out
