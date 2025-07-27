@@ -75,13 +75,13 @@ Optimal Space & Time ComplexityO(nlog(n) + mlog(m)) time | O(1) space - where n 
 def smallestDifference_sol_1(arrayOne, arrayTwo):
     # Brute force
 
-    min_abs = None
+    min_abs = float('inf')
     out = []
 
     for one_value in arrayOne:
         for two_value in arrayTwo:
             current_abs = abs(one_value-two_value)
-            if min_abs is None or current_abs < min_abs:
+            if current_abs < min_abs:
                 min_abs = current_abs
                 out = [one_value, two_value]
 
@@ -96,14 +96,14 @@ def smallestDifference_sol_2(arrayOne, arrayTwo):
     one_pointer = 0
     two_pointer = 0
     out = []
-    min_abs = None
+    min_abs = float('inf')
 
     while one_pointer < len(arrayOne) and two_pointer < len(arrayTwo):
         one_value = arrayOne[one_pointer]
         two_value = arrayTwo[two_pointer]
         current_abs = abs(two_value - one_value)
 
-        if min_abs is None or current_abs < min_abs:
+        if current_abs < min_abs:
             min_abs = current_abs
             out = [one_value, two_value]
 
