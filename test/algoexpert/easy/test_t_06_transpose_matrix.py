@@ -1,6 +1,6 @@
 import pytest
 
-from src.algoexpert.easy.t_06_transpose_matrix import transposeMatrix_sol_1
+from src.algoexpert.easy.t_06_transpose_matrix import transposeMatrix_sol_1, transposeMatrix_sol_2
 
 test_cases = [
     ([
@@ -16,7 +16,8 @@ test_cases = [
      ],
      [
          [1, 3, 5],
-         [2, 4, 6]]
+         [2, 4, 6]
+     ]
     ),
 ([[1]],[[1]]),
 ([[1],[-1]],[[1, -1]]),
@@ -40,3 +41,6 @@ test_cases = [
 def test_transposeMatrix_sol_1(matrix, result_expected):
     assert transposeMatrix_sol_1(matrix) == result_expected
 
+@pytest.mark.parametrize("matrix, result_expected", test_cases)
+def test_transposeMatrix_sol_2(matrix, result_expected):
+    assert transposeMatrix_sol_2(matrix) == result_expected
