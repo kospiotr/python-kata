@@ -74,9 +74,8 @@ Optimal Space & Time ComplexityO(nlog(n) + mlog(m)) time | O(1) space - where n 
 # noinspection PyPep8Naming
 def smallestDifference_sol_1(arrayOne, arrayTwo):
     # Brute force
-
-    min_abs = float('inf')
     out = []
+    min_abs = float('inf')
 
     for one_value in arrayOne:
         for two_value in arrayTwo:
@@ -84,6 +83,9 @@ def smallestDifference_sol_1(arrayOne, arrayTwo):
             if current_abs < min_abs:
                 min_abs = current_abs
                 out = [one_value, two_value]
+
+            if min_abs == 0:
+                return out
 
     return out
 
@@ -93,10 +95,11 @@ def smallestDifference_sol_2(arrayOne, arrayTwo):
     arrayOne.sort()
     arrayTwo.sort()
 
-    one_pointer = 0
-    two_pointer = 0
     out = []
     min_abs = float('inf')
+
+    one_pointer = 0
+    two_pointer = 0
 
     while one_pointer < len(arrayOne) and two_pointer < len(arrayTwo):
         one_value = arrayOne[one_pointer]
