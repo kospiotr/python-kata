@@ -68,15 +68,13 @@ Optimal Space & Time ComplexityO(w * h) time | O(w * h) space - where w is the w
 def transposeMatrix_sol_1(matrix):
     # Column by column
     out = []
-    for row_index, row_value in enumerate(matrix):
-        for column_index, cell_value in enumerate(matrix[row_index]):
-            new_row_index = column_index
-            new_col_index = row_index
-            if new_col_index == 0:
+    for row_index in range(len(matrix)):
+        for col_index in range(len(matrix[0])):
+            if row_index == 0:
                 out.append([])
-            out[new_row_index].append(cell_value)
-            # print('R:', new_row_index, 'C:',new_col_index, cell_value)
-    # print(out)
+
+            out[col_index].append(matrix[row_index][col_index])
+
     return out
 
 def transposeMatrix_sol_2(matrix):
@@ -86,9 +84,8 @@ def transposeMatrix_sol_2(matrix):
     for col_index in range(len(matrix[0])):
         row = []
         for row_index in range(len(matrix)):
-            cell_value = matrix[row_index][col_index]
-            row.append(cell_value)
-        out.append(row)
+            row.append(matrix[row_index][col_index])
 
+        out.append(row)
 
     return out
